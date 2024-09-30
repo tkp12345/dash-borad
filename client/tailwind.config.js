@@ -53,15 +53,22 @@ const themes = {
     }
 }
 
-module.exports = {
-    darkMode:"class",
-  content: [
-    './pages/**/*.{js,ts,jsx,tsx}',
-    './components/**/*.{js,ts,jsx,tsx}',
-    './app/**/*.{js,ts,jsx,tsx}', // Next.js 13+ app directory 사용 시
-  ],
-  theme: {
-    extend: {},
-  },
-  plugins: [createThemes(themes)],
+const config = {
+    darkMode: "class",
+    content: [
+        "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
+        "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+        "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    ],
+    theme: {
+        extend: {
+            backgroundImage: {
+                "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+                "gradient-conic":
+                    "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+            },
+        },
+    },
+    plugins: [createThemes(themes)],
 };
+export default config;
